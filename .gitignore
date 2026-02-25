@@ -1,7 +1,7 @@
-# config.env
+config.env
 data/
 results/
 error_log.txt
 __pycache__/
 *.pyc
-# .env
+.env
