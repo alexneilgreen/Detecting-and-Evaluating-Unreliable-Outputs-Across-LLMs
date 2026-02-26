@@ -33,11 +33,15 @@ def load_gsm8k(num_questions, seed = 42):
         match = re.search(r"####\s*(-?[\d,]+)", raw_answer)
         ground_truth = match.group(1).replace(",", "") if match else raw_answer.strip()
 
+        # Strip the '#### N' part to get just the worked solution steps
+        solution_work = re.sub(r"####.*$", "", raw_answer, flags=re.MULTILINE).strip()
+
         results.append({
             "dataset": "GSM8k",
             "question_number": counter,
             "question": row["question"].strip(),
             "answer": ground_truth,
+            "solution": solution_work,
         })
 
     return results
