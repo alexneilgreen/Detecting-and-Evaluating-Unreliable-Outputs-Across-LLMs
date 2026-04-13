@@ -1,6 +1,6 @@
 # LLM Reliability Evaluation
 
-Queries GPT-3.5, GPT-4, Claude 3 Haiku, and Gemini 1.5 with questions from GSM8k and TruthfulQA-multi, logging responses and self-reported confidence scores to a CSV for later analysis.
+Queries GPT-3.5, GPT-4, Claude Haiku, and Gemini 2.5 Flash Lite with questions from GSM8k and TruthfulQA-multi, logging responses and self-reported confidence scores to a CSV for later analysis.
 
 ## Setup
 
@@ -25,12 +25,13 @@ python src/query_models.py [--trials N] [--model MODEL] [--questions N] [--outpu
 
 ## Arguments
 
-| Argument      | Default               | Description                                                 |
-| ------------- | --------------------- | ----------------------------------------------------------- |
-| `--trials`    | `5`                   | Number of times each question is sent to the model          |
-| `--model`     | `all`                 | Model to query: `all`, `GPT3.5`, `GPT4`, `Haiku3`, `Gemini` |
-| `--questions` | `50`                  | Number of questions sampled per dataset                     |
-| `--output`    | `results/results.csv` | Output CSV path — appends if file already exists            |
+| Argument          | Default               | Description                                                          |
+| ----------------- | --------------------- | -------------------------------------------------------------------- |
+| `--trials`        | `5`                   | Number of times each question is sent to the model                   |
+| `--model`         | `all`                 | Model to query: `all`, `GPT3.5`, `GPT4`, `Haiku3`, `Gemini`          |
+| `--questions`     | `50`                  | Number of questions sampled per dataset                              |
+| `--output`        | `results/results.csv` | Output CSV path — appends if file already exists                     |
+| `--download-only` | N/A                   | Download and cache both datasets then exit without querying any APIs |
 
 ## Examples
 
@@ -49,6 +50,6 @@ python src/query_models.py --model Gemini --output results/gemini.csv
 
 Results are saved to the path specified by `--output` (default: `results/results.csv`).
 
-Columns: `AI Model | Question Number | Dataset | Question | Response | Confidence`
+Columns: `AI Model | Question Number | Dataset | Question | Ground Truth Work | Ground Truth Answer | Response | Answer | Confidence`
 
 API errors are logged to `error_log.txt` in the project root.
