@@ -27,7 +27,7 @@ python src/query_models.py [--trials N] [--model MODEL] [--questions N] [--outpu
 
 | Argument      | Default               | Description                                                 |
 | ------------- | --------------------- | ----------------------------------------------------------- |
-| `--trials`    | `1`                   | Number of times each question is sent to the model          |
+| `--trials`    | `5`                   | Number of times each question is sent to the model          |
 | `--model`     | `all`                 | Model to query: `all`, `GPT3.5`, `GPT4`, `Haiku3`, `Gemini` |
 | `--questions` | `50`                  | Number of questions sampled per dataset                     |
 | `--output`    | `results/results.csv` | Output CSV path — appends if file already exists            |
